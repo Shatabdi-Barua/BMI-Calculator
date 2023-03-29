@@ -11,8 +11,7 @@
     <title>BMI Calculator</title>
 </head>
 <body>
-    <div class="container">
-        <!-- <form action=""> -->
+    <div class="container">        
             <h1>BMI Calculator</h1>
             <div>
                 <label>Height (m)</label>
@@ -25,8 +24,7 @@
             <div class="text-center">
                 <button class="btn btn-warning" id="calculateBtn">Click Me</button>
             </div>
-            <div id="result"></div>
-        <!-- </form>         -->
+            <div id="result"></div>       
     </div>
     <script>
         window.onload = () => {
@@ -49,8 +47,7 @@
             }
             else{
                 var bmiResult = (weight / (height*height)).toFixed(2)
-                result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;
-                // alert("Your BMI is: "+bmiResult)
+                result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;               
             }
             
         }
