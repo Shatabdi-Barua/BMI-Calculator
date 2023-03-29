@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>    
+    <link rel="stylesheet" href="style.css">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <form action=""> -->
+            <h1>BMI Calculator</h1>
+            <div>
+                <label>Height (m)</label>
+                <input type="text" id="heightInput" required>
+            </div>
+            <div>
+                <label>Weight (kg)</label>
+                <input type="text" id="weightInput" required>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-warning" id="calculateBtn">Click Me</button>
+            </div>
+            <div id="result"></div>
+        <!-- </form>         -->
+    </div>
+    <script>
+        window.onload = () => {
+            document.getElementById("heightInput").value = '';
+            document.getElementById("weightInput").value = '';
+        }
+        document.getElementById("calculateBtn").addEventListener("click", calculateBMI);
+        function calculateBMI()
+        {
+            var height = parseFloat( document.getElementById("heightInput").value);
+            var weight = parseFloat( document.getElementById("weightInput").value);
+            var result =  document.getElementById("result");
+            if(!height)
+            {
+                alert("Please put your height");
+            }
+            else if(!weight)
+            {
+                alert("Please put your weight");
+            }
+            else{
+                var bmiResult = (weight / (height*height)).toFixed(2)
+                result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;
+                // alert("Your BMI is: "+bmiResult)
+            }
+            
+        }
+    </script>
+</body>
+</html>
