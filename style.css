@@ -42,8 +42,10 @@ input{
     top: 10px;
 }
 #result{
-    padding-top: 20px;
     font-size: 20px;
     font-weight: bold;
     color: #ede1bc;
+    top: 20px;
+    position: relative;
+    padding: 3px;
 }

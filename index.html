@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- <form action=""> -->
+        <form action="">
             <h1>BMI Calculator</h1>
             <div>
                 <label>Height (m)</label>
@@ -23,10 +23,11 @@
                 <input type="text" id="weightInput" required>
             </div>
             <div class="text-center">
-                <button class="btn btn-warning" id="calculateBtn">Click Me</button>
+                <button class="btn btn-warning" id="calculateBtn">Calculate</button>
             </div>
+        </form>  
             <div id="result"></div>
-        <!-- </form>         -->
+              
     </div>
     <script>
         window.onload = () => {
@@ -34,10 +35,11 @@
             document.getElementById("weightInput").value = '';
         }
         document.getElementById("calculateBtn").addEventListener("click", calculateBMI);
-        function calculateBMI()
+        function calculateBMI(e)
         {
-            var height = parseFloat( document.getElementById("heightInput").value);
-            var weight = parseFloat( document.getElementById("weightInput").value);
+            e.preventDefault();
+            var height = document.getElementById("heightInput").value;
+            var weight = document.getElementById("weightInput").value;
             var result =  document.getElementById("result");
             if(!height)
             {
@@ -47,9 +49,37 @@
             {
                 alert("Please put your weight");
             }
+            else if(isNaN(height))
+            {
+                alert("Please put a valid height");
+            }
+            else if(isNaN(weight))
+            {
+                alert("Please put a valid height");
+            }
             else{
-                var bmiResult = (weight / (height*height)).toFixed(2)
-                result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;
+                var bmiResult = (weight / Math.pow(height, 2)).toFixed(2)
+                if (bmiResult < 18.5) 
+                {
+                    result.style.backgroundColor = "#f26008";
+                    result.innerHTML = `Your BMI weight is : <span>${bmiResult} (Underweight) </span>`;
+                } 
+                else if (bmiResult >= 18.5 && bmiResult < 24.9) 
+                {
+                    result.style.backgroundColor = "#33ac33";
+                    result.innerHTML = `Your BMI weight is : <span>${bmiResult} (Normal) </span>`;                    
+                } 
+                else if (bmiResult >= 25.0 && bmiResult < 29.9) 
+                {
+                    result.style.backgroundColor = "#97970e";
+                    result.innerHTML = `Your BMI weight is : <span>${bmiResult} (Overweight) </span>`;                    
+                } 
+                else 
+                {
+                    result.style.backgroundColor = "#fd0404";
+                    result.innerHTML = `Your BMI weight is : <span>${bmiResult} (Obese) </span>`;                    
+                }
+                // result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;
                 // alert("Your BMI is: "+bmiResult)
             }
             
