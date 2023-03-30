@@ -11,8 +11,12 @@
     <title>BMI Calculator</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="container">
         <form action="">
+=======
+    <div class="container">        
+>>>>>>> d3a3d3ac4cb371c6774ceceb930a9aa6e71c1ecf
             <h1>BMI Calculator</h1>
             <div>
                 <label>Height (m)</label>
@@ -25,9 +29,13 @@
             <div class="text-center">
                 <button class="btn btn-warning" id="calculateBtn">Calculate</button>
             </div>
+<<<<<<< HEAD
         </form>  
             <div id="result"></div>
               
+=======
+            <div id="result"></div>       
+>>>>>>> d3a3d3ac4cb371c6774ceceb930a9aa6e71c1ecf
     </div>
     <script>
         window.onload = () => {
@@ -58,6 +66,7 @@
                 alert("Please put a valid height");
             }
             else{
+<<<<<<< HEAD
                 var bmiResult = (weight / Math.pow(height, 2)).toFixed(2)
                 if (bmiResult < 18.5) 
                 {
@@ -81,6 +90,10 @@
                 }
                 // result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;
                 // alert("Your BMI is: "+bmiResult)
+=======
+                var bmiResult = (weight / (height*height)).toFixed(2)
+                result.innerHTML = `Your BMI weight is : <span>${bmiResult}</span>`;               
+>>>>>>> d3a3d3ac4cb371c6774ceceb930a9aa6e71c1ecf
             }
             
         }
